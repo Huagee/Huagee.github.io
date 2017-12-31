@@ -1942,7 +1942,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #181fff;
+  background: #ff5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3241,7 +3241,7 @@ img:hover {
   }
 }
 body {
-  background: url("https://files.cnblogs.com/files/huagee/Background.gif");
+  background: url("http://hexo-1252915177.cossh.myqcloud.com/Background.gif");
 }
 .category-list ul {
   list-style: none;
