@@ -297,6 +297,194 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.edzhishi.com/2018/01/01/hexo之live2d打造萌萌宠物/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huagee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浮生一梦">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/01/hexo之live2d打造萌萌宠物/" itemprop="url">hexo之live2d打造萌萌宠物</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-01T14:29:14+08:00">
+                2018-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+                  >
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/live2d/" itemprop="url" rel="index">
+                    <span itemprop="name">live2d</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="技术背景"><a href="#技术背景" class="headerlink" title="技术背景"></a>技术背景</h1><blockquote>
+<p>Live2D是一种应用于电子游戏的绘图渲染技术，技术由日本Cybernoids公司开发。通过一系列的连续图像和人物建模来生成一种类似三维模型的二维图像，对于以动画风格为主的冒险游戏来说非常有用，缺点是Live 2D人物无法大幅度转身，开发商正设法让该技术可显示360度图像。－－－《百度百科》</p>
+</blockquote>
+<h1 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h1><h2 id="安装npm包"><a href="#安装npm包" class="headerlink" title="安装npm包"></a>安装npm包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+<h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>在 <code>layout/layout.ejs</code> 或者 <code>layout/_layout.swig</code>文件中<br><code>&lt;body&gt;</code>之前加入一段代码</p>
+<ul>
+<li><p>如果是ejs文件,代码为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- live2d() %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果是swig文件，代码为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; live2d() &#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>然后在 <code>hexo</code> 的配置文件 <code>_config.yml</code>中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  model: haru01</span><br><span class="line">  bottom: -40</span><br></pre></td></tr></table></figure></p>
+<p>启动命令行并执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo  clean</span><br><span class="line">hexo  g  -d</span><br></pre></td></tr></table></figure></p>
+<p>就可以看到效果了，很简单的。<br>这样如果在手机上预览体验不是很好，可以配置成这样<br>在参数中加一句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mobileShow: false</span><br></pre></td></tr></table></figure></p>
+<p>这样在手机上就不会显示了。</p>
+<h2 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h2><ul>
+<li><p><code>model</code>是指live2d的2d模型，npm包默认安装了许多模型，可以自行更改。可以满足绝大多数人的需求。<br>具体可以参考<a href="https://npm.taobao.org/package/hexo-helper-live2d" target="_blank" rel="noopener">淘宝npm镜像</a>官网中关于live2d的说明        </p>
+</li>
+<li><p><code>bottom</code> 是指底部偏移值，可以根据自己的实际情况更改</p>
+</li>
+<li><code>width</code>    模型宽度   默认150</li>
+<li><code>height</code>    模型高度    默认300</li>
+</ul>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>这只是初步搭建好了live2d效果，其实live2d有很多可以配置的东西。<br>那详细讲下去需要很多的篇幅（哈哈，其实我也不会更厉害的，在这里只做初级的入门。<br>如果想想要更多学习live2d的知识，请参考以下链接：</p>
+<ul>
+<li><a href="https://npm.taobao.org/package/hexo-helper-live2d" target="_blank" rel="noopener">淘宝npm镜像</a><br>纯英文，但很简单，相信难不倒你。我就是参考这个配置的</li>
+<li><a href="https://www.ohyhello.com/530/" target="_blank" rel="noopener">大佬的博客</a><br>emmmm,更多好玩，等你发现</li>
+<li><a href="https://tieba.baidu.com/f?kw=live2dviewerex&amp;ie=utf-8&amp;tp=0" target="_blank" rel="noopener">百度贴吧</a><br>emmmm,死宅真多</li>
+<li><a href="http://www.live2d.com/en/" target="_blank" rel="noopener">live2d官网</a><br>有能力的可以去看看，有部分中文翻译和英文翻译。</li>
+</ul>
+<h1 id="结尾容我矫情几句"><a href="#结尾容我矫情几句" class="headerlink" title="结尾容我矫情几句"></a>结尾容我矫情几句</h1><p>我可能是中了hexo的魔法了，总是喜欢折腾来，折腾去，乐此不疲。因而浪费的很多时间，但同时学到了非常多的知识，也认识了一批有趣的小伙伴。<br>今天是2018年的第一天，希望2018年能够实现自己的一些小目标。<br>又老了一岁，岁月啊，真是无情。</p>
+<blockquote>
+<p>那一天我二十一岁，在我一生的黄金时代，我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云，后来我才知道，生活就是个缓慢受锤的过程，人一天天老下去，奢望也一天天消逝，最后变得像挨了锤的牛一样。可是我过二十一岁生日时没有预见到这一点。我觉得自己会永远生猛下去，什么也锤不了我。<br>        ——-王小波《黄金时代》</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.edzhishi.com/2017/12/31/test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -486,7 +674,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -497,12 +685,21 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
             
 
           </nav>
@@ -537,7 +734,7 @@ const loadScript = function loadScript(c,b){var a=document.createElement("script
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
